@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import queryString from 'query-string';
 import { useParams, Link, useLocation } from "react-router-dom"; 
 
 
@@ -8,12 +7,7 @@ function TopSongsList( { booleanSwitch }) {
 
     const {id} = useParams()
     const { pathname } = useLocation();
-    const location = useLocation();
-
-
-
-    let noSearchParams = (location.search === "");
-
+    // const location = useLocation();
     
     const [topSongsData, setTopSongsData] = useState([])
     

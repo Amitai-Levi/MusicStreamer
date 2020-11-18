@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory, useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function AlbumCard({ name, artist_name, id, cover_img}) {
     // console.log("artist id ",id);
