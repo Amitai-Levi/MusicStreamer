@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch, useLocation } from 'react-router-dom';
+
+import './App.css';
 import Home from "./components/pages/Home"
 import Header from "./components/Header"
 import ArtistPage from "./components/pages/ArtistPage"
@@ -9,10 +10,10 @@ import PlaylistPage from "./components/pages/PlaylistPage"
 import SongPage from "./components/pages/SongPage"
 import NotFound from "./components/pages/NotFound"
 import SignUp from './components/pages/SignUp';
+import Login from './components/pages/Login';
 import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
-
 
   return (
     <>
@@ -36,12 +37,16 @@ function App() {
           <SongPage/>
         </Route>
     
-        <Route exact path='/'>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+        <Route exact path='/signup'>
           <SignUp />
         </Route>
-        {/* <Route exact path='/'>
+
+        <Route exact path='/'>
           <Home />
-        </Route> */}
+        </Route>
       
           <Route>
             <NotFound/>

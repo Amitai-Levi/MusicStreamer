@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from "react-router-dom";
 
+import { useAuth } from "../contexts/AuthContext"
+
 function Header() {
     const [navbar, setNavbar] = useState(false)
-
+    //
+    const { currentUser } = useAuth();    
+    // currentUser && console.log(currentUser);
     const changeBackground = () => {
         if (window.scrollY > 0) {
             setNavbar(true)
@@ -31,7 +35,7 @@ function Header() {
                 </span>
 
                 <span className={"profile_logo"}>
-                  Profile
+                  {currentUser && currentUser.email || ""} 
                 </span>
             </div>
         </>
