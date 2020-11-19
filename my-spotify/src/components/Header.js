@@ -3,10 +3,18 @@ import { NavLink, Link } from "react-router-dom";
 
 import { useAuth } from "../contexts/AuthContext"
 
+
+
 function Header() {
+
+    const { currentUser } = useAuth();
+    const { logout } = useAuth();    
+    const onLogout = () => {
+        logout()
+    }
+
     const [navbar, setNavbar] = useState(false)
     //
-    const { currentUser } = useAuth();    
     // currentUser && console.log(currentUser);
     const changeBackground = () => {
         if (window.scrollY > 0) {
@@ -15,6 +23,8 @@ function Header() {
             setNavbar(false)
         }
     }
+    // const loginButton = <span onClick={login}>Login</span>
+    const logoutButton = <span onClick={logout}>Sign Out</span>
     
     
     window.addEventListener("scroll", changeBackground)
@@ -35,7 +45,12 @@ function Header() {
                 </span>
 
                 <span className={"profile_logo"}>
-                  {currentUser && currentUser.email || ""} 
+                  {currentUser ? 
+                  <span>
+                    <span onClick={logout} className="grey-white-pointer">Sign Out</span> <span className="grey-white-pointer">{currentUser.email}</span>
+                  </span>
+                  :
+                    <Link to="/login" className="grey-white-pointer">Sign In</Link>} 
                 </span>
             </div>
         </>

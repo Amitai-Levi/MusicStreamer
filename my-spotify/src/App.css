@@ -67,6 +67,14 @@ body {
       cursor: pointer;
       color: white;
   }
+  .grey-white-pointer {
+    color: rgb(187, 187, 187);
+    text-decoration: none; 
+    cursor: pointer;
+  }
+  .grey-white-pointer:hover {
+    color: white;
+  } 
   .logo{
       color: white;
       text-decoration: none;
